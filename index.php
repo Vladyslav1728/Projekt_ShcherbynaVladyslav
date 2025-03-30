@@ -128,6 +128,7 @@
   </section>
 
   <section class="section coming-soon" data-section="section3">
+<<<<<<< HEAD
   <div class="container">
     <?php
     $message = "";
@@ -419,6 +420,7 @@
               </div>
             </div>
           </form>
+<<<<<<< HEAD
           <?php
     $message = "";
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -440,6 +442,8 @@
           <div style="margin-top: 20px;">
             <?php echo $message; ?>
           </div>
+=======
+>>>>>>> acc3d1941bc049ecfe409bcddb716ccdf7eb4f65
         </div>
         <div class="col-md-6">
           <div id="map">
