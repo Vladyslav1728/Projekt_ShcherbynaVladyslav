@@ -8,8 +8,6 @@ function get_menu(array $pages) {
     return $menuItems;
 }
 
-
-
 function add_scripts() {
     echo '<script src="vendor/jquery/jquery.min.js"></script>';
     echo '<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>';
@@ -45,6 +43,4 @@ function add_stylesheets() {
             break;
     }
 }
-
-
 ?>
