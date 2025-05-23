@@ -1,11 +1,8 @@
 <?php
-  require_once('_inc/functions.php');
-?> 
-    
-  <?php
-    add_scripts();
-  ?>
-  
+  require_once('_inc/autoload.php');
+?>
+
+
   <footer>
     <div class="container">
       <div class="row">

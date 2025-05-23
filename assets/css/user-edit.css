@@ -1,0 +1,64 @@
+/* Отступ сверху для контейнера */
+.container {
+  max-width: 500px;
+  margin: 180px auto 40px; /* большой отступ сверху */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
+}
+
+/* Заголовок */
+.container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Форма */
+form#user {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Поля ввода и селект */
+form#user input[type="text"],
+form#user input[type="email"],
+form#user select {
+  padding: 12px 15px;
+  font-size: 16px;
+  border: 1.5px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+}
+
+form#user input[type="text"]:focus,
+form#user input[type="email"]:focus,
+form#user select:focus {
+  outline: none;
+  border-color: #007BFF;
+}
+
+/* Кнопка отправки */
+form#user input[type="submit"] {
+  padding: 12px;
+  font-size: 18px;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form#user input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Сообщение об ошибке */
+p[style*="color: red;"] {
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+}

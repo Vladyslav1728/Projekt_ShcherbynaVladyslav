@@ -1,6 +1,14 @@
 <?php
   include('partials/header.php');
+  session_start();
+$db = new Database();
+$auth = new Authenticate($db);
+
+echo '<pre>';
+print_r($_SESSION);
+echo '</pre>';
 ?>
+
 
   <!-- ***** Main Banner Area Start ***** -->
   <section class="section main-banner" id="top" data-section="section1">
@@ -80,16 +88,17 @@
         </div>
         <div class="col-md-12">
           <div id='tabs'>
-            <ul>
-              <?php
-              $pages = array(
-                'Best Education' => '#tabs-1',
-                'Top Management' => '#tabs-2',
-                'Quality Meeting' => '#tabs-3'
-              );
-              echo get_menu($pages);
-              ?>
-            </ul>
+<ul>
+  <?php
+  $pages = array(
+    'Best Education' => '#tabs-1',
+    'Top Management' => '#tabs-2',
+    'Quality Meeting' => '#tabs-3'
+  );
+  echo MenuBuilder::getMenuHtml($pages);
+  ?>
+</ul>
+
             <section class='tabs-content'>
               <article id='tabs-1'>
                 <div class="row">
@@ -454,6 +463,10 @@
       </div>
     </div>
   </section>
+
+<?php
+  Assets::addScripts();
+?>
 
     <script>
         //according to loftblog tut

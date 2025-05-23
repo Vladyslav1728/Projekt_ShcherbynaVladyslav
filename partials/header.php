@@ -1,6 +1,7 @@
 <?php
-  require_once('_inc/functions.php');
+  require_once('_inc/autoload.php');
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,16 +16,11 @@
     <title>Grad School HTML5 Template</title>
 
     <!-- Additional CSS Files -->
+
 <?php
-  add_stylesheets();
+  Assets::addStylesheets();
 ?>
-<!--
-    
-TemplateMo 557 Grad School
 
-https://templatemo.com/tm-557-grad-school
-
--->
 </head>
 <body>
 
@@ -36,16 +32,26 @@ https://templatemo.com/tm-557-grad-school
     </div>
     <a href="#menu" class="menu-link"><i class="fa fa-bars"></i></a>
     <nav id="menu" class="main-nav" role="navigation">
+      <?php
+      $menu = [
+          'Home' => '#section1',
+          'About Us' => [
+              'url' => '#section2',
+              'submenu' => [
+                  'Who we are?' => '#section2',
+                  'What we do?' => '#section3',
+                  'How it works?' => '#section3',
+                  'External URL' => 'https://templatemo.com/about'
+              ]
+          ],
+          'Courses' => '#section4',
+          'Video' => '#section5',
+          'Contact' => '#section6',
+          'External' => 'https://templatemo.com'
+      ];
+      ?>
       <ul class="main-menu">
-  <?php
-    $pages = array(
-      'Home' => '#section1',
-      'About Us' => '#section2',
-      'Courses' => '#section4',
-      'Contact' => '#section6'
-    );
-    echo get_menu($pages);
-  ?>
-</ul>
+      <?php echo MenuBuilder::getMenuHtml($menu); ?>
+      </ul>
     </nav>
   </header>
