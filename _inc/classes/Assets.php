@@ -57,6 +57,9 @@ class Assets {
             case 'contact-show':
                 echo '<link rel="stylesheet" href="assets/css/contact-show.css">';
                 break;
+            case 'login':
+                echo '<link rel="stylesheet" href="assets/css/login.css">';
+                break;
         }
     }
 }
