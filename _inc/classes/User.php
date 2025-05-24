@@ -46,7 +46,7 @@ class User {
         return $stmt->execute();
     }
 
-    public function edit($id, $name, $email, $role) {
+    public function edit($id, $name, $email, $password, $role) {
         // Overíme, či email už patrí inému používateľovi
         $stmt = $this->db->prepare("SELECT id FROM users WHERE email = :email AND id != :id");
         $stmt->bindParam(':email', $email, PDO::PARAM_STR);
@@ -57,6 +57,7 @@ class User {
             // Iný používateľ s týmto emailom už existuje
             return false;
         }
+
 
         $stmt = $this->db->prepare("
             UPDATE users 

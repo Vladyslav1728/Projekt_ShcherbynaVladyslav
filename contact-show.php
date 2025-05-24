@@ -6,19 +6,16 @@ $db = new Database();
 $contact = new Contact($db);
 
 if(isset($_GET['id'])){
-    //print_r($_GET['id']);
     $id = $_GET['id'];
     $contactData = $contact->show($id);
-    //print_r($contactData);
 }
-
 ?>
 
 <section class="container">
     <h1>Contact show</h1>
-    <p>Name: <?php echo($contactData['name']);?></p>
-    <p>Email: <?php echo($contactData['email']);?></p>
-    <p>Message: <?php echo($contactData['message']);?></p>
+    <p>Name: <?php echo htmlspecialchars($contactData['name']); ?></p>
+    <p>Email: <?php echo htmlspecialchars($contactData['email']); ?></p>
+    <p>Phone: <?php echo htmlspecialchars($contactData['phone']); ?></p> <!-- заменили Message на Phone -->
     <a href="admin.php">Back to Contacts</a>
 </section>
 

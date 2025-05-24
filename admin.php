@@ -8,13 +8,24 @@ $db = new Database();
 $contact = new Contact($db);
 $contacts = $contact->index();
 
+// Recenzie (отзывы)
+$review = new Review($db);
+$reviews = $review->index();
+
 // Používatelia
 $user = new User($db);
 $users = $user->index();
 
-// Vymazanie správy
+// Vymazanie správy (контакта)
 if (isset($_GET['delete'])) {
     $contact->destroy($_GET['delete']);
+    header("Location: admin.php");
+    exit;
+}
+
+// Vymazanie recenzie (отзыва)
+if (isset($_GET['delete_review'])) {
+    $review->destroy($_GET['delete_review']);
     header("Location: admin.php");
     exit;
 }
@@ -38,7 +49,7 @@ if (isset($_GET['delete_user'])) {
             <th>ID</th>
             <th>Meno</th>
             <th>Email</th>
-            <th>Správa</th>            
+            <th>Správa</th>
             <th>Delete</th>
             <th>Edit</th>
             <th>Show</th>
@@ -48,10 +59,38 @@ if (isset($_GET['delete_user'])) {
                 <td><?= htmlspecialchars($con['id']) ?></td>
                 <td><?= htmlspecialchars($con['name']) ?></td>
                 <td><?= htmlspecialchars($con['email']) ?></td>
-                <td><?= htmlspecialchars($con['message']) ?></td>
+                <td><?= htmlspecialchars($con['phone']) ?></td>
                 <td><a href="?delete=<?= $con['id'] ?>" onclick="return confirm('Určite chcete vymazať túto správu?')">Delete</a></td>
                 <td><a href="contact-edit.php?id=<?= $con['id'] ?>">Edit</a></td>
                 <td><a href="contact-show.php?id=<?= $con['id'] ?>">Show</a></td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+
+    <hr>
+
+    <!-- Sekcia recenzií -->
+    <h2>Recenzie</h2>
+    <a href="review-create.php" class="button">Create Review</a>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Meno</th>
+            <th>Email</th>
+            <th>Správa</th>
+            <th>Delete</th>
+            <th>Edit</th>
+            <th>Show</th>
+        </tr>
+        <?php foreach($reviews as $rev): ?>
+            <tr>
+                <td><?= htmlspecialchars($rev['id']) ?></td>
+                <td><?= htmlspecialchars($rev['name']) ?></td>
+                <td><?= htmlspecialchars($rev['email']) ?></td>
+                <td><?= htmlspecialchars($rev['message']) ?></td>
+                <td><a href="?delete_review=<?= $rev['id'] ?>" onclick="return confirm('Určite chcete vymazať tento recenziu?')">Delete</a></td>
+                <td><a href="review-edit.php?id=<?= $rev['id'] ?>">Edit</a></td>
+                <td><a href="review-show.php?id=<?= $rev['id'] ?>">Show</a></td>
             </tr>
         <?php endforeach; ?>
     </table>

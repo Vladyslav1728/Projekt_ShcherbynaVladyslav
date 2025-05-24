@@ -60,6 +60,15 @@ class Assets {
             case 'login':
                 echo '<link rel="stylesheet" href="assets/css/login.css">';
                 break;
+            case 'review-create':
+                echo '<link rel="stylesheet" href="assets/css/review-create.css">';
+                break;
+            case 'review-edit':
+                echo '<link rel="stylesheet" href="assets/css/review-edit.css">';
+                break;
+            case 'review-show':
+                echo '<link rel="stylesheet" href="assets/css/review-show.css">';
+                break;
         }
     }
 }

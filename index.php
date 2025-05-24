@@ -1,12 +1,40 @@
 <?php
-  include('partials/header.php');
+  require_once('_inc/autoload.php');
+?>
+<?php
   session_start();
+  $db = new Database();
+  $auth = new Authenticate($db);
+?>
+<?php
 $db = new Database();
-$auth = new Authenticate($db);
+$contact = new Contact($db);
+$message = "";
 
-echo '<pre>';
-print_r($_SESSION);
-echo '</pre>';
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = trim($_POST['name'] ?? '');
+    $email = trim($_POST['email'] ?? '');
+    $phone = trim($_POST['phone'] ?? '');
+
+    if (empty($name)) {
+        $message = "<p style='color:red; font-size:20px;'>Please enter your name.</p>";
+    } elseif (empty($email)) {
+        $message = "<p style='color:red; font-size:20px;'>Please enter your email.</p>";
+    } elseif (empty($phone)) {
+        $message = "<p style='color:red; font-size:20px;'>Please enter your phone number.</p>";
+    } else {
+        // phone сохраняется
+        if ($contact->create($name, $email, $phone)) {
+            header("Location: thankyou.php");
+            exit;
+        } else {
+            $message = "<p style='color:red; font-size:20px;'>Error saving your contact. Please try again.</p>";
+        }
+    }
+}
+?>
+<?php
+  include('partials/header.php');
 ?>
 
 
@@ -143,25 +171,6 @@ echo '</pre>';
 
   <section class="section coming-soon" data-section="section3">
   <div class="container">
-    <?php
-    $message = "";
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $name = trim($_POST['name'] ?? '');
-        $email = trim($_POST['email'] ?? '');
-        $phone = trim($_POST['phone-number'] ?? '');
-
-        if (empty($name)) {
-            $message = "<p style='color:red;'>Please enter your name.</p>";
-        } elseif (empty($email)) {
-            $message = "<p style='color:red;'>Please enter your email.</p>";
-        } elseif (empty($phone)) {
-            $message = "<p style='color:red;'>Please enter your phone number.</p>";
-        } else {
-            $message = "<p style='color:#f5a425; font-size:20px;'>Thank you, $name! Your registration is complete.</p>";
-        }
-    }
-    echo $message;
-    ?>
     <div class="row">
       <div class="col-md-7 col-xs-12">
         <div class="continer centerIt">
@@ -195,7 +204,7 @@ echo '</pre>';
                   </div>
                   <div class="col-md-12">
                     <fieldset>
-                      <input name="phone-number" type="text" class="form-control" id="phone-number" placeholder="Your Phone Number" required>
+                      <input name="phone" type="text" class="form-control" id="phone-number" placeholder="Your Phone Number" required>
                     </fieldset>
                   </div>
                   <div class="col-md-12">
@@ -433,24 +442,35 @@ echo '</pre>';
               </div>
             </div>
           </form>
-          <?php
-    $message = "";
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $name = trim($_POST['name'] ?? '');
-        $email = trim($_POST['email'] ?? '');
-        $userMessage = trim($_POST['message'] ?? '');
+<?php
+$db = new Database();
+$review = new Review($db); // <-- используем класс Review
+$message = "";
 
-        if (empty($name)) {
-            $message = "<p style='color:red; font-size:20px;'>Please enter your name.</p>";
-        } elseif (empty($email)) {
-            $message = "<p style='color:red; font-size:20px;'>Please enter your email.</p>";
-        } elseif (empty($userMessage)) {
-            $message = "<p style='color:red; font-size:20px;'>Please enter your message.</p>";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = trim($_POST['name'] ?? '');
+    $email = trim($_POST['email'] ?? '');
+    $userMessage = trim($_POST['message'] ?? '');
+
+    if (empty($name)) {
+        $message = "<p style='color:red; font-size:20px;'>Please enter your name.</p>";
+    } elseif (empty($email)) {
+        $message = "<p style='color:red; font-size:20px;'>Please enter your email.</p>";
+    } elseif (empty($userMessage)) {
+        $message = "<p style='color:red; font-size:20px;'>Please enter your message.</p>";
+    } else {
+        // сохраняем отзыв
+        if ($review->create($name, $email, $userMessage)) {
+            header("Location: thankyou.php");
+            exit;
         } else {
-            $message = "<p style='color:#f5a425; font-size:20px;'>Thank you, $name! Your message has been sent.</p>";
+            $message = "<p style='color:red; font-size:20px;'>Error saving your review. Please try again.</p>";
         }
     }
-    ?>
+}
+?>
+
+
           <div style="margin-top: 20px;">
             <?php echo $message; ?>
           </div>

@@ -1,8 +1,8 @@
 /* user-detail.css */
 
 .container {
-    max-width: 600px;
-    margin: 280px auto 40px; /* Отступ сверху, центрирование и небольшой отступ снизу */
+    max-width: 800px;
+    margin: 280px auto 20px; /* Отступ сверху, центрирование и небольшой отступ снизу */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
