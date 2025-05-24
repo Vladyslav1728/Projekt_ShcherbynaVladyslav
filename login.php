@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('partials/header.php');
 Assets::addStyle();
 ?>
@@ -36,15 +37,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div style="color: red;"><?= htmlspecialchars($error) ?></div>
     <?php endif; ?>
 
-    <form method="POST" action="login.php">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br>
+<form id="user" method="POST" action="login.php">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
 
-        <label for="password">Heslo:</label>
-        <input type="password" id="password" name="password" required><br>
+    <label for="password">Heslo:</label>
+    <input type="password" id="password" name="password" required>
 
-        <button type="submit">Prihlásiť sa</button>
-    </form>
+    <input type="submit" value="Prihlásiť sa">
+</form>
+
 </section>
 <?php
 include('partials/footer.php');

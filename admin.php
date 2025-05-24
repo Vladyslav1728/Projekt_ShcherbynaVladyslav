@@ -40,6 +40,10 @@ if (isset($_GET['delete_user'])) {
 
 <section class="container">
     <h1>Vítaj admin</h1>
+    <form action="logout.php" method="POST" style="text-align: right;">
+        <button type="submit" class="button">Log out</button>
+    </form>
+
 
     <!-- Sekcia kontaktov -->
     <h2>Kontakty</h2>
