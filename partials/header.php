@@ -44,11 +44,32 @@
           'Courses' => '#section4',
           'Video' => '#section5',
           'Contact' => '#section6',
-          'External' => 'https://templatemo.com'
+          'External' => 'https://templatemo.com',
       ];
       ?>
       <ul class="main-menu">
       <?php echo MenuBuilder::getMenuHtml($menu); ?>
       </ul>
     </nav>
+
+    <!-- Кнопка Login -->
+    <div class="login-button">
+    <a href="login.php" style="
+      margin-top: 18px;
+      margin-left: 40px;
+      padding: 10px 22px; 
+      background: linear-gradient(45deg, #6a11cb, #2575fc);
+      color: white; 
+      font-weight: 600;
+      border-radius: 30px; 
+      box-shadow: 0 4px 12px rgba(38, 44, 118, 0.3);
+      text-decoration: none;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      display: inline-block;
+    " 
+      onmouseover="this.style.background='linear-gradient(45deg, #2575fc, #6a11cb)'; this.style.boxShadow='0 6px 16px rgba(38,44,118,0.5)';" 
+      onmouseout="this.style.background='linear-gradient(45deg, #6a11cb, #2575fc)'; this.style.boxShadow='0 4px 12px rgba(38, 44, 118, 0.3)';"
+      >Login</a>
+    </div>
+
   </header>
