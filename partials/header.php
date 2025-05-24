@@ -44,7 +44,7 @@
           'Courses' => '#section4',
           'Video' => '#section5',
           'Contact' => '#section6',
-          'External' => 'https://templatemo.com',
+          'External' => 'https://templatemo.com'
       ];
       ?>
       <ul class="main-menu">
