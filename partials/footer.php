@@ -2,7 +2,6 @@
   require_once('_inc/autoload.php');
 ?>
 
-
   <footer>
     <div class="container">
       <div class="row">

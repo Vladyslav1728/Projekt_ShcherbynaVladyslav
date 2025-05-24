@@ -15,17 +15,14 @@
 
     <title>Grad School HTML5 Template</title>
 
-    <!-- Additional CSS Files -->
-
+<!-- Additional CSS Files -->
 <?php
   Assets::addStylesheets();
 ?>
 
+<!--header-->
 </head>
 <body>
-
-   
-  <!--header-->
   <header class="main-header clearfix" role="header">
     <div class="logo">
       <a href="#"><em>Grad</em> School</a>

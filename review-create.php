@@ -18,6 +18,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     }
   }
 ?>
+
 <section class="container">
     <h1>Pridanie recenzii</h1>
     <form id="contact" action="" method="POST">

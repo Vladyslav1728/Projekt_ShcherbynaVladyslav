@@ -23,7 +23,6 @@ if(isset($_GET['id'])){
         }
       }
 }
-
 ?>
 
 <section class="container">

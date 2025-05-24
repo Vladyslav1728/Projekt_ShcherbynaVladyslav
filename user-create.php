@@ -8,7 +8,7 @@ $user = new User($db);
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_POST['name'];
     $email = $_POST['email'];
-    $role = $_POST['role']; // tu príde 0 alebo 1
+    $role = $_POST['role'];
     $password = $_POST['password'];
 
     if ($user->create($name, $email, $role, $password)) {

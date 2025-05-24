@@ -6,12 +6,9 @@ $db = new Database();
 $contact = new Review($db);
 
 if(isset($_GET['id'])){
-    //print_r($_GET['id']);
     $id = $_GET['id'];
     $contactData = $contact->show($id);
-    //print_r($contactData);
 }
-
 ?>
 
 <section class="container">

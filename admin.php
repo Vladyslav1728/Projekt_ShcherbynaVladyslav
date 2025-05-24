@@ -53,7 +53,7 @@ if (isset($_GET['delete_user'])) {
             <th>ID</th>
             <th>Meno</th>
             <th>Email</th>
-            <th>Správa</th>
+            <th>Telefónne číslo</th>
             <th>Delete</th>
             <th>Edit</th>
             <th>Show</th>

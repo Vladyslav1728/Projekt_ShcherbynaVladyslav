@@ -55,3 +55,31 @@ form#user input[type="submit"]:hover {
   box-shadow: 0 8px 25px rgba(0, 86, 179, 0.7);
   transform: translateY(-3px);
 }
+
+form#user input[type="submit"],
+form[action="index.php"] .btn-home {
+  display: inline-block;
+  padding: 12px 28px;
+  background: linear-gradient(90deg, #007BFF, #0056b3);
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.5);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+form#user input[type="submit"]:hover,
+form[action="index.php"] .btn-home:hover {
+  background: linear-gradient(90deg, #0056b3, #003d80);
+  box-shadow: 0 8px 25px rgba(0, 86, 179, 0.7);
+  transform: translateY(-3px);
+}
+
+form[action="index.php"] button.btn-home {
+  padding-left: 30px;
+  padding-right: 30px;
+}

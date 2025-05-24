@@ -12,7 +12,7 @@ if(isset($_GET['id'])){
     if($_SERVER['REQUEST_METHOD']=='POST'){
         $name = $_POST['name'];
         $email = $_POST['email'];
-        $phone = $_POST['phone']; // заменили message на phone
+        $phone = $_POST['phone'];
         
         if ($contact->edit($id, $name, $email, $phone)) {
           header("Location: admin.php");
@@ -29,7 +29,7 @@ if(isset($_GET['id'])){
     <form id="contact" action="" method="POST">
         <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($contactData['name']); ?>" required><br>
         <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($contactData['email']); ?>" required><br>
-        <input type="tel" id="phone" name="phone" value="<?php echo htmlspecialchars($contactData['phone']); ?>" required><br> <!-- заменили textarea на input tel -->
+        <input type="tel" id="phone" name="phone" value="<?php echo htmlspecialchars($contactData['phone']); ?>" required><br>
         <input type="submit" value="Odoslať">
     </form>
 </section>

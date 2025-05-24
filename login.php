@@ -31,13 +31,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <section class="container">
-    <h2>Prihlásenie</h2>
+  <div style="display: flex; justify-content: space-between; align-items: center;">
+    <h2 style="margin: 0;">Prihlásenie</h2>
+    <form action="index.php" method="get" style="margin: 0;">
+      <button type="submit" class="btn-home">Na hlavnú stránku</button>
+    </form>
+  </div>
 
-    <?php if (isset($error)): ?>
-        <div style="color: red;"><?= htmlspecialchars($error) ?></div>
-    <?php endif; ?>
+  <?php if (isset($error)): ?>
+    <div style="color: red; margin-top: 10px;"><?= htmlspecialchars($error) ?></div>
+  <?php endif; ?>
 
-<form id="user" method="POST" action="login.php">
+  <form id="user" method="POST" action="login.php" style="margin-top: 20px;">
     <label for="email">Email:</label>
     <input type="email" id="email" name="email" required>
 
@@ -45,9 +50,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <input type="password" id="password" name="password" required>
 
     <input type="submit" value="Prihlásiť sa">
-</form>
-
+  </form>
 </section>
+
 <?php
 include('partials/footer.php');
 ?>
