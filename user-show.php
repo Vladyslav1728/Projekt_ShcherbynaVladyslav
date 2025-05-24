@@ -17,10 +17,10 @@ if (isset($_GET['id'])) {
         <p>Meno: <?= htmlspecialchars($userData['name']) ?></p>
         <p>Email: <?= htmlspecialchars($userData['email']) ?></p>
         <p>Rola: <?= $userData['role'] == 0 ? 'Admin' : 'User' ?></p>
-        <a href="admin.php">Späť na zoznam používateľov</a>
+        <button class="button" onclick="window.location.href='admin.php'">Back to Users</button>
     <?php else: ?>
         <p>Používateľ nebol nájdený.</p>
-        <a href="admin.php">Späť na zoznam používateľov</a>
+        <button class="button" onclick="window.location.href='admin.php'">Back to Users</button>
     <?php endif; ?>
 </section>
 

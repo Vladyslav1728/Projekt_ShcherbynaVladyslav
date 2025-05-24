@@ -1,0 +1,66 @@
+/* Обнуляем, если надо */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  color: #fff;
+}
+
+.thankyou-main {
+  height: 100vh; /* Полная высота экрана */
+  display: flex;
+  justify-content: center; /* горизонтально по центру */
+  align-items: center;     /* вертикально по центру */
+  padding: 20px;
+  text-align: center;
+}
+
+.thankyou-container {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 50px 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  max-width: 450px;
+  width: 100%;
+  backdrop-filter: blur(10px);
+}
+
+.thankyou-title {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+}
+
+.thankyou-subtitle {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.thankyou-text {
+  font-size: 1.25rem;
+  margin-bottom: 40px;
+  line-height: 1.5;
+  color: #e0e0e0;
+}
+
+.btn-return {
+  display: inline-block;
+  background-color: #fff;
+  color: #2575fc;
+  font-weight: 600;
+  font-size: 1.2rem;
+  padding: 15px 40px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(255,255,255,0.5);
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-return:hover {
+  background-color: #2575fc;
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(37, 117, 252, 0.7);
+}

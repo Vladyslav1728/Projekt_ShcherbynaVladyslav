@@ -16,7 +16,7 @@ if(isset($_GET['id'])){
     <p>Name: <?php echo htmlspecialchars($contactData['name']); ?></p>
     <p>Email: <?php echo htmlspecialchars($contactData['email']); ?></p>
     <p>Phone: <?php echo htmlspecialchars($contactData['phone']); ?></p> <!-- заменили Message на Phone -->
-    <a href="admin.php">Back to Contacts</a>
+    <button class="button" onclick="window.location.href='admin.php'">Back to Contact</button>
 </section>
 
 <?php

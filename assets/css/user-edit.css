@@ -1,70 +1,50 @@
-/* Контейнер */
 .container {
-  max-width: 500px;
-  margin: 120px auto 40px;
-  padding: 30px 25px;
-  border-radius: 10px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: 180px auto 40px;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 50, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Заголовок */
-.container h1 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 25px;
-  font-size: 26px;
-}
-
-/* Форма */
-form#user {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-/* Поля */
 form#user input[type="text"],
 form#user input[type="email"],
-form#user input[type="password"],
 form#user select {
-  padding: 12px 14px;
-  font-size: 16px;
+  width: 100%;
+  padding: 12px 15px;
+  margin: 12px 0;
   border: 1.5px solid #ccc;
-  border-radius: 6px;
-  transition: 0.3s border-color ease;
-  background-color: #fdfdfd;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
 }
 
 form#user input[type="text"]:focus,
 form#user input[type="email"]:focus,
-form#user input[type="password"]:focus,
 form#user select:focus {
+  border-color: #007BFF;
   outline: none;
-  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
 }
 
-/* Кнопка */
 form#user input[type="submit"] {
-  padding: 12px;
-  background-color: #007bff;
+  width: 100%;
+  padding: 12px 28px;
+  margin-top: 20px;
+  background: linear-gradient(90deg, #007BFF, #0056b3);
   color: white;
+  font-weight: 600;
   border: none;
-  font-size: 18px;
-  font-weight: bold;
-  border-radius: 6px;
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.5);
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-size: 1rem;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 form#user input[type="submit"]:hover {
-  background-color: #0056b3;
-}
-
-/* Сообщения об ошибке */
-p[style*="color: red;"] {
-  text-align: center;
-  margin-top: 20px;
-  font-weight: bold;
-  color: red;
+  background: linear-gradient(90deg, #0056b3, #003d80);
+  box-shadow: 0 8px 25px rgba(0, 86, 179, 0.7);
+  transform: translateY(-3px);
 }

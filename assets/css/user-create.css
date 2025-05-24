@@ -1,66 +1,57 @@
-/* Отступ сверху для контейнера */
 .container {
-  max-width: 500px;
-  margin: 140px auto 40px; /* большой отступ сверху */
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  font-family: Arial, sans-serif;
+  margin-top: 150px;
+  padding: 30px 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 50, 0.1);
 }
 
-/* Заголовок */
-.container h1 {
-  text-align: center;
-  margin-bottom: 30px;
-  color: #333;
-}
-
-/* Форма */
-form#user {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-/* Поля ввода и селект */
 form#user input[type="text"],
 form#user input[type="email"],
 form#user input[type="password"],
 form#user select {
+  width: 100%;
   padding: 12px 15px;
-  font-size: 16px;
+  margin: 12px 0;
   border: 1.5px solid #ccc;
-  border-radius: 6px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   transition: border-color 0.3s ease;
+  box-sizing: border-box;
 }
 
 form#user input[type="text"]:focus,
 form#user input[type="email"]:focus,
 form#user input[type="password"]:focus,
 form#user select:focus {
-  outline: none;
   border-color: #007BFF;
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
 }
 
-/* Кнопка отправки */
 form#user input[type="submit"] {
-  padding: 12px;
-  font-size: 18px;
-  background-color: #007BFF;
-  border: none;
-  border-radius: 6px;
+  display: inline-block;
+  padding: 12px 28px;
+  margin-top: 20px;
+  background: linear-gradient(90deg, #007BFF, #0056b3);
   color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.5);
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-size: 1rem;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 100%;
 }
 
 form#user input[type="submit"]:hover {
-  background-color: #0056b3;
-}
-
-/* Сообщение об ошибке */
-p[style*="color: red;"] {
-  text-align: center;
-  margin-top: 20px;
-  font-weight: bold;
+  background: linear-gradient(90deg, #0056b3, #003d80);
+  box-shadow: 0 8px 25px rgba(0, 86, 179, 0.7);
+  transform: translateY(-3px);
 }

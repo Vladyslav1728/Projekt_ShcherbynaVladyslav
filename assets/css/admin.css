@@ -1,45 +1,65 @@
 .container {
-  margin-top: 110px; /* большой отступ сверху, можно подстроить под твой дизайн */
-  padding: 0 20px;
+  margin-top: 110px; /* большой отступ сверху */
+  padding: 30px 40px;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 50, 0.1);
 }
+
 table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   margin-bottom: 40px;
+  box-shadow: 0 8px 20px rgba(0,0,50,0.1);
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 th, td {
-  border: 1px solid #ccc;
-  padding: 10px 15px;
+  padding: 15px 20px;
   text-align: left;
+  font-size: 1rem;
+  color: #333;
 }
 
 th {
-  background-color: #f4f4f4;
+  background: linear-gradient(90deg, #007BFF, #0056b3);
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  user-select: none;
 }
 
 tr:nth-child(even) {
-  background-color: #fafafa;
+  background-color: #f9fbff;
 }
 
 tr:hover {
-  background-color: #f0f8ff;
+  background-color: #d9e9ff;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
 }
+
 .button {
   display: inline-block;
-  padding: 10px 20px;
-  margin: 15px 0;
-  background-color: #007BFF;
+  padding: 12px 28px;
+  margin: 20px 0;
+  background: linear-gradient(90deg, #007BFF, #0056b3);
   color: white;
+  font-weight: 600;
   text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.5);
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .button:hover {
-  background-color: #0056b3;
+  background: linear-gradient(90deg, #0056b3, #003d80);
+  box-shadow: 0 8px 25px rgba(0, 86, 179, 0.7);
+  transform: translateY(-3px);
 }

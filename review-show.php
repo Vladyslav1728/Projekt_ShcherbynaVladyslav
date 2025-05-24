@@ -19,7 +19,7 @@ if(isset($_GET['id'])){
     <p>Name: <?php echo($contactData['name']);?></p>
     <p>Email: <?php echo($contactData['email']);?></p>
     <p>Message: <?php echo($contactData['message']);?></p>
-    <a href="admin.php">Back to Recenzie</a>
+    <button class="button" onclick="window.location.href='admin.php'">Back to Recenzie</button>
 </section>
 
 <?php

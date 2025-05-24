@@ -44,7 +44,7 @@ if (isset($_GET['delete_user'])) {
     <!-- Sekcia kontaktov -->
     <h2>Kontakty</h2>
     <a href="contact-create.php" class="button">Create Contact</a>
-    <table border="1">
+    <table>
         <tr>
             <th>ID</th>
             <th>Meno</th>
@@ -72,7 +72,7 @@ if (isset($_GET['delete_user'])) {
     <!-- Sekcia recenzií -->
     <h2>Recenzie</h2>
     <a href="review-create.php" class="button">Create Review</a>
-    <table border="1">
+    <table>
         <tr>
             <th>ID</th>
             <th>Meno</th>
@@ -100,7 +100,7 @@ if (isset($_GET['delete_user'])) {
     <!-- Sekcia používateľov -->
     <h2>Používatelia</h2>
     <a href="user-create.php" class="button">Create User</a>
-    <table border="1">
+    <table>
         <tr>
             <th>ID</th>
             <th>Meno</th>

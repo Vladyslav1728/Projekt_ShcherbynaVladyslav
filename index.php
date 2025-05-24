@@ -34,6 +34,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 <?php
+$db = new Database();
+$review = new Review($db); // <-- используем класс Review
+$message = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = trim($_POST['name'] ?? '');
+    $email = trim($_POST['email'] ?? '');
+    $userMessage = trim($_POST['message'] ?? '');
+
+    if (empty($name)) {
+        $message = "<p style='color:red; font-size:20px;'>Please enter your name.</p>";
+    } elseif (empty($email)) {
+        $message = "<p style='color:red; font-size:20px;'>Please enter your email.</p>";
+    } elseif (empty($userMessage)) {
+        $message = "<p style='color:red; font-size:20px;'>Please enter your message.</p>";
+    } else {
+        // сохраняем отзыв
+        if ($review->create($name, $email, $userMessage)) {
+            header("Location: thankyou.php");
+            exit;
+        } else {
+            $message = "<p style='color:red; font-size:20px;'>Error saving your review. Please try again.</p>";
+        }
+    }
+}
+?>
+<?php
   include('partials/header.php');
 ?>
 
@@ -442,38 +469,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               </div>
             </div>
           </form>
-<?php
-$db = new Database();
-$review = new Review($db); // <-- используем класс Review
-$message = "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = trim($_POST['name'] ?? '');
-    $email = trim($_POST['email'] ?? '');
-    $userMessage = trim($_POST['message'] ?? '');
-
-    if (empty($name)) {
-        $message = "<p style='color:red; font-size:20px;'>Please enter your name.</p>";
-    } elseif (empty($email)) {
-        $message = "<p style='color:red; font-size:20px;'>Please enter your email.</p>";
-    } elseif (empty($userMessage)) {
-        $message = "<p style='color:red; font-size:20px;'>Please enter your message.</p>";
-    } else {
-        // сохраняем отзыв
-        if ($review->create($name, $email, $userMessage)) {
-            header("Location: thankyou.php");
-            exit;
-        } else {
-            $message = "<p style='color:red; font-size:20px;'>Error saving your review. Please try again.</p>";
-        }
-    }
-}
-?>
-
-
-          <div style="margin-top: 20px;">
-            <?php echo $message; ?>
-          </div>
         </div>
         <div class="col-md-6">
           <div id="map">

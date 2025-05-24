@@ -32,43 +32,47 @@ class Assets {
         }
     }
 
-    public static function addStyle() {
-        $page_name = basename($_SERVER["SCRIPT_NAME"], '.php');
+public static function addStyle() {
+    $page_name = basename($_SERVER["SCRIPT_NAME"], '.php');
+    $version = filemtime("assets/css/{$page_name}.css"); // время последней модификации файла
 
-        switch ($page_name) {
-            case 'admin':
-                echo '<link rel="stylesheet" href="assets/css/admin.css">';
-                break;
-            case 'user-create':
-                echo '<link rel="stylesheet" href="assets/css/user-create.css">';
-                break;
-            case 'user-edit':
-                echo '<link rel="stylesheet" href="assets/css/user-edit.css">';
-                break;
-            case 'user-show':
-                echo '<link rel="stylesheet" href="assets/css/user-show.css">';
-                break;
-            case 'contact-create':
-                echo '<link rel="stylesheet" href="assets/css/contact-create.css">';
-                break;
-            case 'contact-edit':
-                echo '<link rel="stylesheet" href="assets/css/contact-edit.css">';
-                break;
-            case 'contact-show':
-                echo '<link rel="stylesheet" href="assets/css/contact-show.css">';
-                break;
-            case 'login':
-                echo '<link rel="stylesheet" href="assets/css/login.css">';
-                break;
-            case 'review-create':
-                echo '<link rel="stylesheet" href="assets/css/review-create.css">';
-                break;
-            case 'review-edit':
-                echo '<link rel="stylesheet" href="assets/css/review-edit.css">';
-                break;
-            case 'review-show':
-                echo '<link rel="stylesheet" href="assets/css/review-show.css">';
-                break;
-        }
+    switch ($page_name) {
+        case 'admin':
+            echo '<link rel="stylesheet" href="assets/css/admin.css?v=' . $version . '">';
+            break;
+        case 'user-create':
+            echo '<link rel="stylesheet" href="assets/css/user-create.css?v=' . $version . '">';
+            break;
+        case 'user-edit':
+            echo '<link rel="stylesheet" href="assets/css/user-edit.css?v=' . $version . '">';
+            break;
+        case 'user-show':
+            echo '<link rel="stylesheet" href="assets/css/user-show.css?v=' . $version . '">';
+            break;
+        case 'contact-create':
+            echo '<link rel="stylesheet" href="assets/css/contact-create.css?v=' . $version . '">';
+            break;
+        case 'contact-edit':
+            echo '<link rel="stylesheet" href="assets/css/contact-edit.css?v=' . $version . '">';
+            break;
+        case 'contact-show':
+            echo '<link rel="stylesheet" href="assets/css/contact-show.css?v=' . $version . '">';
+            break;
+        case 'login':
+            echo '<link rel="stylesheet" href="assets/css/login.css?v=' . $version . '">';
+            break;
+        case 'review-create':
+            echo '<link rel="stylesheet" href="assets/css/review-create.css?v=' . $version . '">';
+            break;
+        case 'review-edit':
+            echo '<link rel="stylesheet" href="assets/css/review-edit.css?v=' . $version . '">';
+            break;
+        case 'review-show':
+            echo '<link rel="stylesheet" href="assets/css/review-show.css?v=' . $version . '">';
+            break;
+        case 'thankyou':
+            echo '<link rel="stylesheet" href="assets/css/thankyou.css?v=' . $version . '">';
+            break;
     }
+}
 }

@@ -14,7 +14,7 @@ if (isset($_GET['id'])) {
         $email = $_POST['email'];
         $role = $_POST['role'];
 
-        if ($user->edit($id, $name, $email, $password, $role)) {
+        if ($user->edit($id, $name, $email, $role)) {
             header("Location: admin.php");
             exit;
         } else {
