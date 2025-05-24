@@ -6,15 +6,12 @@ $db = new Database();
 $contact = new Review($db);
 
 if(isset($_GET['id'])){
-    //print_r($_GET['id']);
     $id = $_GET['id'];
     $contactData = $contact->show($id);
-    //print_r($contactData);
     if($_SERVER['REQUEST_METHOD']=='POST'){
         $name = $_POST['name'];
         $email = $_POST['email'];
         $message = $_POST['message'];
-        //print_r($_POST);
         if ($contact->edit($id,$name, $email, $message)) {
           header("Location: admin.php");
           exit;

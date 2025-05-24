@@ -9,7 +9,6 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     $name = $_POST['name'];
     $email = $_POST['email'];
     $message = $_POST['message'];
-    //print_r($_POST);
     if ($contact->create($name, $email, $message)) {
       header("Location: admin.php");
       exit;
