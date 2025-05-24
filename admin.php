@@ -1,4 +1,16 @@
 <?php
+session_start();
+
+// Проверяем, есть ли пользователь в сессии
+if (!isset($_SESSION['user_id'])) {
+    // Не авторизован
+    header('Location: login.php');
+    exit;
+}
+
+// Если дошли сюда — пользователь авторизован и имеет роль admin
+?>
+<?php
 include('partials/header.php');
 Assets::addStyle();
 
