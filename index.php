@@ -1,5 +1,6 @@
 <?php
-require_once "_inc/autoload.php"; ?>
+require_once "_inc/autoload.php"; 
+?>
 <?php
 session_start();
 $db = new Database();
@@ -23,7 +24,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $message =
             "<p style='color:red; font-size:20px;'>Please enter your phone number.</p>";
     } else {
-        // phone сохраняется
         if ($contact->create($name, $email, $phone)) {
             header("Location: thankyou.php");
             exit();
@@ -37,7 +37,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php
 $db = new Database();
 $review = new Review($db);
-// <-- используем класс Review
 $message = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = trim($_POST["name"] ?? "");
@@ -53,7 +52,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $message =
             "<p style='color:red; font-size:20px;'>Please enter your message.</p>";
     } else {
-        // сохраняем отзыв
         if ($review->create($name, $email, $userMessage)) {
             header("Location: thankyou.php");
             exit();

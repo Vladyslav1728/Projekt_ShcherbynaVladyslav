@@ -8,7 +8,7 @@ class User
     {
         $this->db = $database->getConnection();
     }
-
+    
     public function index()
     {
         $stmt = $this->db->prepare("SELECT * FROM users");
@@ -26,17 +26,14 @@ class User
 
     public function create($name, $email, $role, $password)
     {
-        // Skontrolujeme, či už existuje používateľ s rovnakým emailom
         $stmt = $this->db->prepare("SELECT id FROM users WHERE email = :email");
         $stmt->bindParam(":email", $email, PDO::PARAM_STR);
         $stmt->execute();
 
         if ($stmt->fetch(PDO::FETCH_ASSOC)) {
-            // Užívateľ s týmto emailom existuje
             return false;
         }
 
-        // Zašifrujeme heslo
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
         $stmt = $this->db->prepare("
@@ -53,7 +50,6 @@ class User
 
     public function edit($id, $name, $email, $role)
     {
-        // Overíme, či email už patrí inému používateľovi
         $stmt = $this->db->prepare(
             "SELECT id FROM users WHERE email = :email AND id != :id"
         );
@@ -62,7 +58,6 @@ class User
         $stmt->execute();
 
         if ($stmt->fetch(PDO::FETCH_ASSOC)) {
-            // Iný používateľ s týmto emailom už existuje
             return false;
         }
 

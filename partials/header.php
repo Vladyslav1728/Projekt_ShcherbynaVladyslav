@@ -29,24 +29,28 @@
     </div>
     <a href="#menu" class="menu-link"><i class="fa fa-bars"></i></a>
     <nav id="menu" class="main-nav" role="navigation">
+      
       <?php
+      $currentPage = basename($_SERVER['PHP_SELF']);
+
       $menu = [
-          'Home' => '#section1',
+          'Home' => ($currentPage === 'index.php') ? '#section1' : 'index.php#section1',
           'About Us' => [
-              'url' => '#section2',
+              'url' => ($currentPage === 'index.php') ? '#section2' : 'index.php#section2',
               'submenu' => [
-                  'Who we are?' => '#section2',
-                  'What we do?' => '#section3',
-                  'How it works?' => '#section3',
+                  'Who we are?' => ($currentPage === 'index.php') ? '#section2' : 'index.php#section2',
+                  'What we do?' => ($currentPage === 'index.php') ? '#section3' : 'index.php#section3',
+                  'How it works?' => ($currentPage === 'index.php') ? '#section3' : 'index.php#section3',
                   'External URL' => 'https://templatemo.com/about'
               ]
           ],
-          'Courses' => '#section4',
-          'Video' => '#section5',
-          'Contact' => '#section6',
+          'Courses' => ($currentPage === 'index.php') ? '#section4' : 'index.php#section4',
+          'Video' => ($currentPage === 'index.php') ? '#section5' : 'index.php#section5',
+          'Contact' => ($currentPage === 'index.php') ? '#section6' : 'index.php#section6',
           'External' => 'https://templatemo.com'
       ];
       ?>
+
       <ul class="main-menu">
       <?php echo MenuBuilder::getMenuHtml($menu); ?>
       </ul>
@@ -73,3 +77,15 @@
     </div>
 
   </header>
+
+<script>
+  window.addEventListener('load', function() {
+    const hash = window.location.hash;
+    if (hash) {
+      const targetElement = document.querySelector(hash);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  });
+</script>

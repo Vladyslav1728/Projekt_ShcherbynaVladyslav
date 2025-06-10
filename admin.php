@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-// Если дошли сюда — пользователь авторизован и имеет роль admin
+// Если дошли сюда — пользователь авторизован
 ?>
 <?php
 include('partials/header.php');
@@ -52,10 +52,11 @@ if (isset($_GET['delete_user'])) {
 
 <section class="container">
     <h1>Vítaj admin</h1>
+
+    <!-- Button - logout -->
     <form action="logout.php" method="POST" style="text-align: right;">
         <button type="submit" class="button">Log out</button>
     </form>
-
 
     <!-- Sekcia kontaktov -->
     <h2>Kontakty</h2>

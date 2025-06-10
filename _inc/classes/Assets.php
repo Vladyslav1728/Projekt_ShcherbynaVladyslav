@@ -37,7 +37,7 @@ class Assets
     public static function addStyle()
     {
         $page_name = basename($_SERVER["SCRIPT_NAME"], ".php");
-        $version = filemtime("assets/css/{$page_name}.css"); // время последней модификации файла
+        $version = filemtime("assets/css/{$page_name}.css");
 
         switch ($page_name) {
             case "admin":

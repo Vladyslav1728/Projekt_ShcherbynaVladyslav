@@ -17,7 +17,7 @@ class MenuBuilder {
                 $menuItems .= '</ul></li>';
             } else {
                 $attrs = '';
-                if (str_starts_with($page_data, 'http')) {
+                if (str_starts_with($page_data, 'http')) {                                                                                                                  
                     $attrs = ' class="external" rel="sponsored"';
                 }
                 $menuItems .= '<li><a href="' . $page_data . '"' . $attrs . '>' . $page_name . '</a></li>';
