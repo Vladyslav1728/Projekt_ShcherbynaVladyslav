@@ -56,3 +56,21 @@ input[type="submit"]:hover {
   box-shadow: 0 8px 25px rgba(0, 86, 179, 0.7);
   transform: translateY(-3px);
 }
+
+select[name="course"] {
+  height: 50px;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  border: 2px solid #007BFF;
+  border-radius: 10px;
+  outline: none;
+  background-color: white;
+  color: #333;
+  transition: border-color 0.3s ease;
+  cursor: pointer;
+}
+
+select[name="course"]:focus {
+  border-color: #0056b3;
+}

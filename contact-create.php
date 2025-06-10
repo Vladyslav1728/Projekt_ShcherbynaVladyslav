@@ -26,9 +26,22 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         <input type="text" placeholder="Vaše meno" id="name" name="name" required><br>
         <input type="email" placeholder="Váš email" id="email" name="email" required><br>
         <input type="tel" placeholder="Váš telefón" id="phone" name="phone" required><br>
-        
+
         <label for="course">Kurz:</label>
-        <input type="text" placeholder="Názov kurzu" id="course" name="course"><br>
+        <select name="course" id="course" class="form-control" required>
+            <option value="" disabled selected>Vyberte kurz</option>
+            <option value="digital_marketing">Digital Marketing</option>
+            <option value="business_world">Business World</option>
+            <option value="media_technology">Media Technology</option>
+            <option value="communications">Communications</option>
+            <option value="business_ethics">Business Ethics</option>
+            <option value="photography">Photography</option>
+            <option value="web_development">Web Development</option>
+            <option value="learn_html_css">Learn HTML CSS</option>
+            <option value="social_media">Social Media</option>
+            <option value="digital_arts">Digital Arts</option>
+            <option value="media_streaming">Media Streaming</option>
+        </select><br>
 
         <input type="submit" value="Odoslať">
     </form>

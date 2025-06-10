@@ -33,7 +33,20 @@ if(isset($_GET['id'])){
         <input type="tel" id="phone" name="phone" value="<?= htmlspecialchars($contactData['phone']) ?>" required><br>
 
         <label for="course">Kurz:</label>
-        <input type="text" id="course" name="course" value="<?= htmlspecialchars($contactData['course'] ?? '') ?>"><br>
+        <select name="course" id="course" class="form-control" required>
+            <option value="" disabled <?= empty($contactData['course']) ? 'selected' : '' ?>>Select Desired Course</option>
+            <option value="digital_marketing" <?= $contactData['course'] == 'digital_marketing' ? 'selected' : '' ?>>Digital Marketing</option>
+            <option value="business_world" <?= $contactData['course'] == 'business_world' ? 'selected' : '' ?>>Business World</option>
+            <option value="media_technology" <?= $contactData['course'] == 'media_technology' ? 'selected' : '' ?>>Media Technology</option>
+            <option value="communications" <?= $contactData['course'] == 'communications' ? 'selected' : '' ?>>Communications</option>
+            <option value="business_ethics" <?= $contactData['course'] == 'business_ethics' ? 'selected' : '' ?>>Business Ethics</option>
+            <option value="photography" <?= $contactData['course'] == 'photography' ? 'selected' : '' ?>>Photography</option>
+            <option value="web_development" <?= $contactData['course'] == 'web_development' ? 'selected' : '' ?>>Web Development</option>
+            <option value="learn_html_css" <?= $contactData['course'] == 'learn_html_css' ? 'selected' : '' ?>>Learn HTML CSS</option>
+            <option value="social_media" <?= $contactData['course'] == 'social_media' ? 'selected' : '' ?>>Social Media</option>
+            <option value="digital_arts" <?= $contactData['course'] == 'digital_arts' ? 'selected' : '' ?>>Digital Arts</option>
+            <option value="media_streaming" <?= $contactData['course'] == 'media_streaming' ? 'selected' : '' ?>>Media Streaming</option>
+        </select><br>
 
         <input type="submit" value="Odoslať">
     </form>
