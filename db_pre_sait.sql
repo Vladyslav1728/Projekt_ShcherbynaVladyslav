@@ -17,22 +17,22 @@ CREATE TABLE `users` (
 
 -- Вставка данных в users
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `created_at`) VALUES
-(5, 'admin', 'admin@example.com', '$2y$10$D70SoY/KX7O0w2w/CJi97.JbqCJ1dwTP6F.w24sMBVFlrxSF8gSCC', 0, '2025-04-28 21:30:33'),
-(6, 'user', 'user@example.com', '$2y$10$G2GzEDQtlA.32.FFiNyV1.uMgAxdD7jmm40jdNKFVrSSodTqLp2q2', 1, '2025-04-28 21:30:49');
+(5, 'Admin_David', 'admin@example.com', '$2y$10$D70SoY/KX7O0w2w/CJi97.JbqCJ1dwTP6F.w24sMBVFlrxSF8gSCC', 0, '2025-06-28 21:36:33');
 
--- Таблица: contact (message заменено на phone)
+-- Создаем новую таблицу с текстовым полем для названия курса
 CREATE TABLE `contact` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(150) NOT NULL,
   `email` varchar(150) NOT NULL,
   `phone` varchar(15) NOT NULL,
+  `course` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Пример данных в contact
-INSERT INTO `contact` (`id`, `name`, `email`, `phone`) VALUES
-(1, 'Livia', 'lkelebercova@ukf.sk', '0900123456'),
-(2, 'a', 'kelebercova24@gmail.com', '0911222333');
+-- Вставляем примеры данных
+INSERT INTO `contact` (`id`, `name`, `email`, `phone`, `course`) VALUES
+(1, 'Livia', 'lkelebercova@ukf.sk', '0900123456', 'Media Technology'),
+(2, 'a', 'kelebercova24@gmail.com', '0911222333', 'Communications');
 
 -- Таблица: review (идентична contact)
 CREATE TABLE `review` (

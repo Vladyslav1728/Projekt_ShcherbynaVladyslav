@@ -14,22 +14,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = trim($_POST["name"] ?? "");
     $email = trim($_POST["email"] ?? "");
     $phone = trim($_POST["phone"] ?? "");
+    $course = $_POST["course"] ?? null;
     if (empty($name)) {
-        $message =
-            "<p style='color:red; font-size:20px;'>Please enter your name.</p>";
+        $message = "<p class='error-message'>Please enter your name.</p>";
     } elseif (empty($email)) {
-        $message =
-            "<p style='color:red; font-size:20px;'>Please enter your email.</p>";
+        $message = "<p class='error-message'>Please enter your email.</p>";
     } elseif (empty($phone)) {
-        $message =
-            "<p style='color:red; font-size:20px;'>Please enter your phone number.</p>";
+        $message = "<p class='error-message'>Please enter your phone number.</p>";
+    } elseif (empty($course)) {
+        $message = "<p class='error-message'>Please select a course.</p>";
     } else {
-        if ($contact->create($name, $email, $phone)) {
+        if ($contact->create($name, $email, $phone, $course)) {
             header("Location: thankyou.php");
             exit();
         } else {
-            $message =
-                "<p style='color:red; font-size:20px;'>Error saving your contact. Please try again.</p>";
+            $message = "<p class='error-message'>Error saving your data. Please try again.</p>";
         }
     }
 }
@@ -260,6 +259,24 @@ include "partials/header.php";
               </div>
               <div class="col-md-12">
                 <fieldset>
+                  <select name="course" id="course" class="form-control" required>
+                    <option value="" disabled selected>Select Desired Course</option>
+                    <option value="digital_marketing">Digital Marketing</option>
+                    <option value="business_world">Business World</option>
+                    <option value="media_technology">Media Technology</option>
+                    <option value="communications">Communications</option>
+                    <option value="business_ethics">Business Ethics</option>
+                    <option value="photography">Photography</option>
+                    <option value="web_development">Web Development</option>
+                    <option value="learn_html_css">Learn HTML CSS</option>
+                    <option value="social_media">Social Media</option>
+                    <option value="digital_arts">Digital Arts</option>
+                    <option value="media_streaming">Media Streaming</option>
+                  </select>
+                </fieldset>
+              </div>
+              <div class="col-md-12">
+                <fieldset>
                   <button type="submit" id="form-submit" class="button">Get it now</button>
                 </fieldset>
               </div>
@@ -288,10 +305,6 @@ include "partials/header.php";
             <div class="author-image">
               <img src="assets/images/author-01.png" alt="Author 1">
             </div>
-            <div class="text-button-pay">
-              <a href="#">Pay <i class="fa fa-angle-double-right"></i>
-              </a>
-            </div>
           </div>
         </div>
         <div class="item">
@@ -301,10 +314,6 @@ include "partials/header.php";
             <p>Quisque cursus augue ut velit dictum, quis volutpat enim blandit. Maecenas a lectus ac ipsum porta.</p>
             <div class="author-image">
               <img src="assets/images/author-02.png" alt="Author 2">
-            </div>
-            <div class="text-button-free">
-              <a href="#">Free <i class="fa fa-angle-double-right"></i>
-              </a>
             </div>
           </div>
         </div>
@@ -316,10 +325,6 @@ include "partials/header.php";
             <div class="author-image">
               <img src="assets/images/author-03.png" alt="Author 3">
             </div>
-            <div class="text-button-pay">
-              <a href="#">Pay <i class="fa fa-angle-double-right"></i>
-              </a>
-            </div>
           </div>
         </div>
         <div class="item">
@@ -329,10 +334,6 @@ include "partials/header.php";
             <p>Download free images and videos for your websites by visiting Unsplash, Pixabay, and Pexels.</p>
             <div class="author-image">
               <img src="assets/images/author-04.png" alt="Author 4">
-            </div>
-            <div class="text-button-free">
-              <a href="#">Free <i class="fa fa-angle-double-right"></i>
-              </a>
             </div>
           </div>
         </div>
@@ -344,10 +345,6 @@ include "partials/header.php";
             <div class="author-image">
               <img src="assets/images/author-05.png" alt="">
             </div>
-            <div class="text-button-pay">
-              <a href="#">Pay <i class="fa fa-angle-double-right"></i>
-              </a>
-            </div>
           </div>
         </div>
         <div class="item">
@@ -357,10 +354,6 @@ include "partials/header.php";
             <p>Quisque cursus augue ut velit dictum, quis volutpat enim blandit. Maecenas a lectus ac ipsum porta.</p>
             <div class="author-image">
               <img src="assets/images/author-01.png" alt="">
-            </div>
-            <div class="text-button-free">
-              <a href="#">Free <i class="fa fa-angle-double-right"></i>
-              </a>
             </div>
           </div>
         </div>
@@ -372,10 +365,6 @@ include "partials/header.php";
             <div class="author-image">
               <img src="assets/images/author-02.png" alt="">
             </div>
-            <div class="text-button-free">
-              <a href="#">Free <i class="fa fa-angle-double-right"></i>
-              </a>
-            </div>
           </div>
         </div>
         <div class="item">
@@ -385,10 +374,6 @@ include "partials/header.php";
             <p>You can get free images and videos for your websites by visiting Unsplash, Pixabay, and Pexels.</p>
             <div class="author-image">
               <img src="assets/images/author-03.png" alt="">
-            </div>
-            <div class="text-button-pay">
-              <a href="#">Pay <i class="fa fa-angle-double-right"></i>
-              </a>
             </div>
           </div>
         </div>
@@ -400,10 +385,6 @@ include "partials/header.php";
             <div class="author-image">
               <img src="assets/images/author-04.png" alt="">
             </div>
-            <div class="text-button-pay">
-              <a href="#">Pay <i class="fa fa-angle-double-right"></i>
-              </a>
-            </div>
           </div>
         </div>
         <div class="item">
@@ -414,10 +395,6 @@ include "partials/header.php";
             <div class="author-image">
               <img src="assets/images/author-05.png" alt="">
             </div>
-            <div class="text-button-free">
-              <a href="#">Free <i class="fa fa-angle-double-right"></i>
-              </a>
-            </div>
           </div>
         </div>
         <div class="item">
@@ -427,10 +404,6 @@ include "partials/header.php";
             <p>Pellentesque ultricies diam magna, auctor cursus lectus pretium nec. Maecenas finibus lobortis enim.</p>
             <div class="author-image">
               <img src="assets/images/author-01.png" alt="">
-            </div>
-            <div class="text-button-pay">
-              <a href="#">Pay <i class="fa fa-angle-double-right"></i>
-              </a>
             </div>
           </div>
         </div>

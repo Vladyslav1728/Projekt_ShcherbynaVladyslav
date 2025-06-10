@@ -13,8 +13,9 @@ if(isset($_GET['id'])){
         $name = $_POST['name'];
         $email = $_POST['email'];
         $phone = $_POST['phone'];
+        $course = $_POST['course'] ?? '';
         
-        if ($contact->edit($id, $name, $email, $phone)) {
+        if ($contact->edit($id, $name, $email, $phone, $course)) {
           header("Location: admin.php");
           exit;
         } else {
@@ -27,9 +28,13 @@ if(isset($_GET['id'])){
 <section class="container">
     <h1>Update contact</h1>
     <form id="contact" action="" method="POST">
-        <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($contactData['name']); ?>" required><br>
-        <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($contactData['email']); ?>" required><br>
-        <input type="tel" id="phone" name="phone" value="<?php echo htmlspecialchars($contactData['phone']); ?>" required><br>
+        <input type="text" id="name" name="name" value="<?= htmlspecialchars($contactData['name']) ?>" required><br>
+        <input type="email" id="email" name="email" value="<?= htmlspecialchars($contactData['email']) ?>" required><br>
+        <input type="tel" id="phone" name="phone" value="<?= htmlspecialchars($contactData['phone']) ?>" required><br>
+
+        <label for="course">Kurz:</label>
+        <input type="text" id="course" name="course" value="<?= htmlspecialchars($contactData['course'] ?? '') ?>"><br>
+
         <input type="submit" value="Odoslať">
     </form>
 </section>

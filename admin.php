@@ -67,6 +67,7 @@ if (isset($_GET['delete_user'])) {
             <th>Meno</th>
             <th>Email</th>
             <th>Telefónne číslo</th>
+            <th>Kurz</th>
             <th>Delete</th>
             <th>Edit</th>
             <th>Show</th>
@@ -77,6 +78,7 @@ if (isset($_GET['delete_user'])) {
                 <td><?= htmlspecialchars($con['name']) ?></td>
                 <td><?= htmlspecialchars($con['email']) ?></td>
                 <td><?= htmlspecialchars($con['phone']) ?></td>
+                <td><?= htmlspecialchars($con['course']) ?></td>
                 <td><a href="?delete=<?= $con['id'] ?>" onclick="return confirm('Určite chcete vymazať túto správu?')">Delete</a></td>
                 <td><a href="contact-edit.php?id=<?= $con['id'] ?>">Edit</a></td>
                 <td><a href="contact-show.php?id=<?= $con['id'] ?>">Show</a></td>
